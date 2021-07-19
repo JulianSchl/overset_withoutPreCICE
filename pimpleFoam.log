@@ -1,0 +1,485 @@
+/*---------------------------------------------------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2012                                  |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+Build  : _e91649cfd8-20210420 OPENFOAM=2012 patch=210414
+Arch   : "LSB;label=32;scalar=64"
+Exec   : pimpleFoam -case openfoam
+Date   : Jul 19 2021
+Time   : 13:10:21
+Host   : scw-a5ymyf
+PID    : 10805
+I/O    : uncollated
+Case   : /home/julian/software/mbdyn-adapter/210719/discourse/overset_withoutPreCICE/openfoam
+nProcs : 1
+trapFpe: Floating point exception trapping enabled (FOAM_SIGFPE).
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 5, maxFileModificationPolls 20)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+Create mesh for time = 0
+
+Selecting dynamicFvMesh dynamicOversetFvMesh
+Selecting motion solver: multiSolidBodyMotionSolver
+Applying solid body motion to entire mesh
+Selecting solid-body motion function multiMotion
+Selecting solid-body motion function rotatingMotion
+Constructed SBMF 0 : rotatingMotion of type rotatingMotion
+Selecting solid-body motion function oscillatingRotatingMotion
+Constructed SBMF 1 : pitchingMotion of type oscillatingRotatingMotion
+Applying solid body motion multiMotion to 6952 points of cellZone c1
+
+PIMPLE: max iterations = 30
+    field "(U|k|omega)"	: relTol 0, tolerance 0.01
+    field p	: relTol 0, tolerance 0.01
+
+Reading field p
+
+Reading field U
+
+Reading/calculating face flux field phi
+
+Selecting incompressible transport model Newtonian
+Selecting turbulence model type RAS
+Selecting RAS turbulence model kOmegaSST
+Selecting patchDistMethod Poisson
+cellVolumeWeight : detected 2 mesh regions
+
+    zone:0 nCells:55842
+    zone:1 nCells:3318
+Marking patch-cells on zone 0
+Marking patch-cells on zone 1
+
+After patch analysis : nCells : 59160
+    other  : 58728
+    patch  : 274
+    overset: 158
+
+Creating mesh-to-mesh addressing for region0 and region0 regions using cellVolumeWeight
+    Overlap volume: 0.002061141778
+cellVolumeWeight : detected 4 mesh regions after overset
+
+Front : fraction:1 size:204
+Overset analysis : nCells : 59160
+    calculated   : 58900
+    interpolated : 200
+    hole         : 60
+
+DILUPBiCGStab:  Solving for yPsi, Initial residual = 1, Final residual = 6.656133747e-09, No Iterations 288
+RAS
+{
+    RASModel        kOmegaSST;
+    turbulence      on;
+    printCoeffs     on;
+    alphaK1         0.85;
+    alphaK2         1;
+    alphaOmega1     0.5;
+    alphaOmega2     0.856;
+    gamma1          0.5555555556;
+    gamma2          0.44;
+    beta1           0.075;
+    beta2           0.0828;
+    betaStar        0.09;
+    a1              0.31;
+    b1              1;
+    c1              10;
+    F3              false;
+    decayControl    false;
+    kInf            0;
+    omegaInf        0;
+}
+
+No MRF models present
+
+No finite volume options present
+Constructing face velocity Uf
+
+Courant Number mean: 0 max: 0
+
+Starting time loop
+
+wallShearStress wallShearStress:
+    processing all wall patches
+
+Courant Number mean: 0 max: 0
+deltaT = 0.0012
+Time = 0.0012
+
+PIMPLE: iteration 1
+DILUPBiCGStab:  Solving for yPsi, Initial residual = 1, Final residual = 9.720760568e-09, No Iterations 288
+cellVolumeWeight : detected 2 mesh regions
+
+    zone:0 nCells:55842
+    zone:1 nCells:3318
+Marking patch-cells on zone 0
+Marking patch-cells on zone 1
+
+After patch analysis : nCells : 59160
+    other  : 58728
+    patch  : 274
+    overset: 158
+
+Creating mesh-to-mesh addressing for region0 and region0 regions using cellVolumeWeight
+    Overlap volume: 0.002061122133
+cellVolumeWeight : detected 3 mesh regions after overset
+
+Front : fraction:1 size:206
+Overset analysis : nCells : 59160
+    calculated   : 58896
+    interpolated : 202
+    hole         : 62
+
+Mesh Courant Number mean: 4.075719056e-05 max: 48.05990621
+DILUPBiCGStab:  Solving for Ux, Initial residual = 1, Final residual = 2.065078066e-09, No Iterations 4
+DILUPBiCGStab:  Solving for Uy, Initial residual = 1, Final residual = 1.651110368e-09, No Iterations 4
+DILUPBiCGStab:  Solving for p, Initial residual = 1, Final residual = 0.0007461849133, No Iterations 182
+DILUPBiCGStab:  Solving for p, Initial residual = 0.005298852804, Final residual = 0.0009355038468, No Iterations 2
+DILUPBiCGStab:  Solving for p, Initial residual = 0.001166898959, Final residual = 0.0005746073302, No Iterations 1
+DILUPBiCGStab:  Solving for p, Initial residual = 0.000669121827, Final residual = 0.0004938261913, No Iterations 1
+time step continuity errors : sum local = 7.904596473e-07, global = -1.688237311e-07, cumulative = -1.688237311e-07
+DILUPBiCGStab:  Solving for p, Initial residual = 0.06750560173, Final residual = 0.0008503787421, No Iterations 157
+DILUPBiCGStab:  Solving for p, Initial residual = 0.004476077498, Final residual = 0.0008483974809, No Iterations 2
+DILUPBiCGStab:  Solving for p, Initial residual = 0.001094079284, Final residual = 0.0007682443122, No Iterations 1
+DILUPBiCGStab:  Solving for p, Initial residual = 0.0008495830328, Final residual = 0.0007218699198, No Iterations 1
+time step continuity errors : sum local = 7.032878808e-07, global = -1.016281067e-07, cumulative = -2.704518378e-07
+DILUPBiCGStab:  Solving for p, Initial residual = 0.09706603403, Final residual = 0.0008321364305, No Iterations 147
+DILUPBiCGStab:  Solving for p, Initial residual = 0.004674122984, Final residual = 0.00078247641, No Iterations 2
+DILUPBiCGStab:  Solving for p, Initial residual = 0.00104132795, Final residual = 0.000693316472, No Iterations 1
+DILUPBiCGStab:  Solving for p, Initial residual = 0.0007763198466, Final residual = 8.033143524e-05, No Iterations 81
+time step continuity errors : sum local = 6.801928601e-07, global = -1.039613819e-07, cumulative = -3.744132197e-07
+DILUPBiCGStab:  Solving for omega, Initial residual = 1.179373335e-05, Final residual = 1.34292277e-09, No Iterations 2
+DILUPBiCGStab:  Solving for k, Initial residual = 0.9999998235, Final residual = 1.789924844e-09, No Iterations 4
+PIMPLE: iteration 2
+DILUPBiCGStab:  Solving for Ux, Initial residual = 0.002748098233, Final residual = 3.158401632e-10, No Iterations 2
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.004081640794, Final residual = 7.79665129e-10, No Iterations 2
+DILUPBiCGStab:  Solving for p, Initial residual = 0.1079238551, Final residual = 0.0009812183864, No Iterations 138
+DILUPBiCGStab:  Solving for p, Initial residual = 0.00546942609, Final residual = 0.0008201145901, No Iterations 2
+DILUPBiCGStab:  Solving for p, Initial residual = 0.001094727902, Final residual = 0.0005948004522, No Iterations 1
+DILUPBiCGStab:  Solving for p, Initial residual = 0.0006967670017, Final residual = 0.00052936142, No Iterations 1
+time step continuity errors : sum local = 6.337918017e-07, global = -8.248302649e-08, cumulative = -4.568962461e-07
+DILUPBiCGStab:  Solving for p, Initial residual = 0.04628623944, Final residual = 0.0005049643141, No Iterations 144
+DILUPBiCGStab:  Solving for p, Initial residual = 0.003516418854, Final residual = 0.0006529624939, No Iterations 1
+DILUPBiCGStab:  Solving for p, Initial residual = 0.0008120632509, Final residual = 0.0004209556677, No Iterations 1
+DILUPBiCGStab:  Solving for p, Initial residual = 0.0004835342698, Final residual = 0.0003483610417, No Iterations 1
+time step continuity errors : sum local = 6.336338226e-07, global = -1.052088245e-07, cumulative = -5.621050706e-07
+DILUPBiCGStab:  Solving for p, Initial residual = 0.0386416617, Final residual = 0.0009984748157, No Iterations 137
+DILUPBiCGStab:  Solving for p, Initial residual = 0.004413777123, Final residual = 0.0009799940327, No Iterations 2
+DILUPBiCGStab:  Solving for p, Initial residual = 0.001208406456, Final residual = 0.000823008037, No Iterations 1
+DILUPBiCGStab:  Solving for p, Initial residual = 0.0009075229056, Final residual = 9.799663238e-05, No Iterations 93
+time step continuity errors : sum local = 6.303835045e-07, global = -9.37748654e-08, cumulative = -6.55879936e-07
+DILUPBiCGStab:  Solving for omega, Initial residual = 2.727854725e-06, Final residual = 3.5861232e-09, No Iterations 2
+DILUPBiCGStab:  Solving for k, Initial residual = 0.001111515753, Final residual = 2.504253138e-09, No Iterations 2
+PIMPLE: iteration 3
+DILUPBiCGStab:  Solving for Ux, Initial residual = 0.003816523119, Final residual = 2.383265033e-10, No Iterations 3
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.008108343062, Final residual = 8.522102074e-10, No Iterations 3
+DILUPBiCGStab:  Solving for p, Initial residual = 0.05884495498, Final residual = 0.0004641572211, No Iterations 153
+DILUPBiCGStab:  Solving for p, Initial residual = 0.003202556416, Final residual = 0.0009515511439, No Iterations 1
+DILUPBiCGStab:  Solving for p, Initial residual = 0.001202887734, Final residual = 0.0007965063918, No Iterations 1
+DILUPBiCGStab:  Solving for p, Initial residual = 0.0008895365576, Final residual = 0.0007338749631, No Iterations 1
+time step continuity errors : sum local = 4.85835507e-07, global = 3.256210793e-08, cumulative = -6.233178281e-07
+DILUPBiCGStab:  Solving for p, Initial residual = 0.01897210599, Final residual = 0.0008433802558, No Iterations 28
+DILUPBiCGStab:  Solving for p, Initial residual = 0.001244113261, Final residual = 0.0008581389295, No Iterations 1
+DILUPBiCGStab:  Solving for p, Initial residual = 0.000968703207, Final residual = 0.0008409739435, No Iterations 1
+DILUPBiCGStab:  Solving for p, Initial residual = 0.0009126006279, Final residual = 0.0008339358926, No Iterations 1
+time step continuity errors : sum local = 4.803893487e-07, global = 3.023421881e-08, cumulative = -5.930836093e-07
+DILUPBiCGStab:  Solving for p, Initial residual = 0.009210395066, Final residual = 0.0009844754743, No Iterations 37
+DILUPBiCGStab:  Solving for p, Initial residual = 0.001580252555, Final residual = 0.0009372301095, No Iterations 1
+DILUPBiCGStab:  Solving for p, Initial residual = 0.001053894916, Final residual = 0.0009063250044, No Iterations 1
+DILUPBiCGStab:  Solving for p, Initial residual = 0.0009681288443, Final residual = 9.646132638e-05, No Iterations 89
+time step continuity errors : sum local = 4.781437268e-07, global = 1.795235944e-08, cumulative = -5.751312498e-07
+DILUPBiCGStab:  Solving for omega, Initial residual = 2.573221024e-06, Final residual = 7.942287948e-10, No Iterations 3
+DILUPBiCGStab:  Solving for k, Initial residual = 0.0002333694244, Final residual = 2.546955512e-10, No Iterations 4
+PIMPLE: converged in 3 iterations
+ExecutionTime = 7.33 s  ClockTime = 7 s
+
+yPlus yPlus write:
+    writing field yPlus
+    patch airfoil y+ : min = 13.43424559, max = 26.39368793, average = 22.99429078
+wallShearStress wallShearStress write:
+    writing field wallShearStress
+    min/max(airfoil) = (-0.1478232962 0.1155102173 -2.319798861e-16), (0.1233427194 0.4386261506 1.736650032e-16)
+Courant Number mean: 4.856590909e-05 max: 55.15955243
+deltaT = 0.0008702028549
+Time = 0.0020702
+
+PIMPLE: iteration 1
+DILUPBiCGStab:  Solving for yPsi, Initial residual = 0.004272475487, Final residual = 8.028670018e-09, No Iterations 200
+cellVolumeWeight : detected 2 mesh regions
+
+    zone:0 nCells:55842
+    zone:1 nCells:3318
+Marking patch-cells on zone 0
+Marking patch-cells on zone 1
+
+After patch analysis : nCells : 59160
+    other  : 58728
+    patch  : 274
+    overset: 158
+
+Creating mesh-to-mesh addressing for region0 and region0 regions using cellVolumeWeight
+    Overlap volume: 0.00206086532
+cellVolumeWeight : detected 3 mesh regions after overset
+
+Front : fraction:1 size:206
+Overset analysis : nCells : 59160
+    calculated   : 58896
+    interpolated : 202
+    hole         : 62
+
+Mesh Courant Number mean: 2.953307263e-05 max: 34.68283875
+DILUPBiCGStab:  Solving for Ux, Initial residual = 0.005664488773, Final residual = 3.194628089e-10, No Iterations 2
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.1769402664, Final residual = 9.779484838e-09, No Iterations 2
+DILUPBiCGStab:  Solving for p, Initial residual = 0.1513428649, Final residual = 0.0009496423983, No Iterations 74
+DILUPBiCGStab:  Solving for p, Initial residual = 0.007451603755, Final residual = 0.0009936813276, No Iterations 13
+DILUPBiCGStab:  Solving for p, Initial residual = 0.001348725609, Final residual = 0.0009798172746, No Iterations 1
+DILUPBiCGStab:  Solving for p, Initial residual = 0.001048456456, Final residual = 0.0009573924972, No Iterations 1
+time step continuity errors : sum local = 3.720673e-07, global = 9.039468255e-08, cumulative = -4.847365673e-07
+DILUPBiCGStab:  Solving for p, Initial residual = 0.1104698222, Final residual = 0.000981410933, No Iterations 80
+DILUPBiCGStab:  Solving for p, Initial residual = 0.005651260599, Final residual = 0.000997147416, No Iterations 20
+DILUPBiCGStab:  Solving for p, Initial residual = 0.001377355512, Final residual = 0.0009835443, No Iterations 1
+DILUPBiCGStab:  Solving for p, Initial residual = 0.001049223285, Final residual = 0.0009641686631, No Iterations 1
+time step continuity errors : sum local = 3.722406321e-07, global = 8.677287023e-08, cumulative = -3.979636971e-07
+DILUPBiCGStab:  Solving for p, Initial residual = 0.1110696964, Final residual = 0.0006157549395, No Iterations 80
+DILUPBiCGStab:  Solving for p, Initial residual = 0.00515066866, Final residual = 0.0009256732937, No Iterations 3
+DILUPBiCGStab:  Solving for p, Initial residual = 0.001142762136, Final residual = 0.0008658850519, No Iterations 1
+DILUPBiCGStab:  Solving for p, Initial residual = 0.0009162788277, Final residual = 9.988832811e-05, No Iterations 85
+time step continuity errors : sum local = 3.708298247e-07, global = 8.729865098e-08, cumulative = -3.106650461e-07
+DILUPBiCGStab:  Solving for omega, Initial residual = 1.427704785e-06, Final residual = 5.545397154e-09, No Iterations 1
+DILUPBiCGStab:  Solving for k, Initial residual = 0.0003699862628, Final residual = 3.696842559e-09, No Iterations 2
+PIMPLE: iteration 2
+DILUPBiCGStab:  Solving for Ux, Initial residual = 0.001263538676, Final residual = 4.727546524e-09, No Iterations 2
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.004144048866, Final residual = 7.63582433e-10, No Iterations 2
+DILUPBiCGStab:  Solving for p, Initial residual = 0.1400655374, Final residual = 0.0009320562499, No Iterations 121
+DILUPBiCGStab:  Solving for p, Initial residual = 0.01070998041, Final residual = 0.0009667697128, No Iterations 45
+DILUPBiCGStab:  Solving for p, Initial residual = 0.002256309208, Final residual = 0.00099817123, No Iterations 14
+DILUPBiCGStab:  Solving for p, Initial residual = 0.001518880382, Final residual = 0.000984020686, No Iterations 2
+time step continuity errors : sum local = 4.126319673e-07, global = 3.781408927e-08, cumulative = -2.728509568e-07
+DILUPBiCGStab:  Solving for p, Initial residual = 0.1107189643, Final residual = 0.0009221644616, No Iterations 111
+DILUPBiCGStab:  Solving for p, Initial residual = 0.009747294516, Final residual = 0.0008616419431, No Iterations 58
+DILUPBiCGStab:  Solving for p, Initial residual = 0.002376880807, Final residual = 0.0008461094018, No Iterations 27
+DILUPBiCGStab:  Solving for p, Initial residual = 0.001729089143, Final residual = 0.0009090231914, No Iterations 1
+time step continuity errors : sum local = 4.09539572e-07, global = 4.681720407e-08, cumulative = -2.260337528e-07
+DILUPBiCGStab:  Solving for p, Initial residual = 0.1185270749, Final residual = 0.0007573655343, No Iterations 111
+DILUPBiCGStab:  Solving for p, Initial residual = 0.009524275884, Final residual = 0.0009894765524, No Iterations 52
+DILUPBiCGStab:  Solving for p, Initial residual = 0.00248188292, Final residual = 0.0009690206157, No Iterations 53
+DILUPBiCGStab:  Solving for p, Initial residual = 0.002559081369, Final residual = 5.195808852e-05, No Iterations 102
+time step continuity errors : sum local = 4.082223239e-07, global = 5.389238098e-08, cumulative = -1.721413718e-07
+DILUPBiCGStab:  Solving for omega, Initial residual = 8.715492117e-07, Final residual = 2.701828884e-09, No Iterations 1
+DILUPBiCGStab:  Solving for k, Initial residual = 8.241784328e-05, Final residual = 2.686716063e-09, No Iterations 2
+PIMPLE: iteration 3
+DILUPBiCGStab:  Solving for Ux, Initial residual = 0.000156960665, Final residual = 4.588790438e-10, No Iterations 2
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.001006144412, Final residual = 1.411466234e-10, No Iterations 3
+DILUPBiCGStab:  Solving for p, Initial residual = 0.1202806113, Final residual = 0.0009320463164, No Iterations 109
+DILUPBiCGStab:  Solving for p, Initial residual = 0.007828227462, Final residual = 0.0007371740427, No Iterations 47
+DILUPBiCGStab:  Solving for p, Initial residual = 0.001531817693, Final residual = 0.0007959110784, No Iterations 1
+DILUPBiCGStab:  Solving for p, Initial residual = 0.0009644652674, Final residual = 0.0007751339177, No Iterations 1
+time step continuity errors : sum local = 4.648436721e-07, global = 4.672755606e-08, cumulative = -1.254138157e-07
+DILUPBiCGStab:  Solving for p, Initial residual = 0.03780708335, Final residual = 0.0008810668247, No Iterations 100
+DILUPBiCGStab:  Solving for p, Initial residual = 0.004141080094, Final residual = 0.0008778145902, No Iterations 42
+DILUPBiCGStab:  Solving for p, Initial residual = 0.001889614949, Final residual = 0.0008749377979, No Iterations 1
+DILUPBiCGStab:  Solving for p, Initial residual = 0.001109650399, Final residual = 0.0008396957727, No Iterations 1
+time step continuity errors : sum local = 4.563915298e-07, global = 5.513371618e-08, cumulative = -7.028009953e-08
+DILUPBiCGStab:  Solving for p, Initial residual = 0.02982633399, Final residual = 0.0008402265284, No Iterations 121
+DILUPBiCGStab:  Solving for p, Initial residual = 0.002729543789, Final residual = 0.0009416794997, No Iterations 1
+DILUPBiCGStab:  Solving for p, Initial residual = 0.001215167687, Final residual = 0.0008652568729, No Iterations 1
+DILUPBiCGStab:  Solving for p, Initial residual = 0.0009909205608, Final residual = 7.91729415e-05, No Iterations 94
+time step continuity errors : sum local = 4.534828872e-07, global = 6.306286358e-08, cumulative = -7.217235957e-09
+DILUPBiCGStab:  Solving for omega, Initial residual = 6.920350451e-07, Final residual = 1.844364546e-10, No Iterations 2
+DILUPBiCGStab:  Solving for k, Initial residual = 3.854362609e-05, Final residual = 4.323778595e-10, No Iterations 3
+PIMPLE: converged in 3 iterations
+ExecutionTime = 13.26 s  ClockTime = 13 s
+
+yPlus yPlus write:
+    writing field yPlus
+    patch airfoil y+ : min = 10.63585791, max = 26.30234283, average = 22.65357698
+wallShearStress wallShearStress write:
+    writing field wallShearStress
+    min/max(airfoil) = (-0.1732691956 0.05806803533 -1.134754425e-16), (0.1205168377 0.414649684 3.383064684e-16)
+Courant Number mean: 3.431947326e-05 max: 37.79777478
+deltaT = 0.0009209037939
+Time = 0.00299111
+
+PIMPLE: iteration 1
+DILUPBiCGStab:  Solving for yPsi, Initial residual = 0.00226424561, Final residual = 2.205038632e-09, No Iterations 220
+cellVolumeWeight : detected 2 mesh regions
+
+    zone:0 nCells:55842
+    zone:1 nCells:3318
+Marking patch-cells on zone 0
+Marking patch-cells on zone 1
+
+After patch analysis : nCells : 59160
+    other  : 58728
+    patch  : 274
+    overset: 158
+
+Creating mesh-to-mesh addressing for region0 and region0 regions using cellVolumeWeight
+    Overlap volume: 0.00206101871
+cellVolumeWeight : detected 3 mesh regions after overset
+
+Front : fraction:1 size:204
+Overset analysis : nCells : 59160
+    calculated   : 58898
+    interpolated : 202
+    hole         : 60
+
+Mesh Courant Number mean: 3.1237531e-05 max: 36.54660693
+DILUPBiCGStab:  Solving for Ux, Initial residual = 0.001480194817, Final residual = 5.754033341e-09, No Iterations 2
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.003458241241, Final residual = 8.022722864e-10, No Iterations 2
+DILUPBiCGStab:  Solving for p, Initial residual = 0.1527064107, Final residual = 0.000993101072, No Iterations 147
+DILUPBiCGStab:  Solving for p, Initial residual = 0.003363272745, Final residual = 0.0009404852964, No Iterations 2
+DILUPBiCGStab:  Solving for p, Initial residual = 0.001053698907, Final residual = 0.0009016686127, No Iterations 1
+DILUPBiCGStab:  Solving for p, Initial residual = 0.0009286510725, Final residual = 0.0008765795651, No Iterations 1
+time step continuity errors : sum local = 4.084581119e-07, global = 7.367147285e-08, cumulative = 6.64542369e-08
+DILUPBiCGStab:  Solving for p, Initial residual = 0.09686304979, Final residual = 0.0003885822149, No Iterations 166
+DILUPBiCGStab:  Solving for p, Initial residual = 0.002288566227, Final residual = 0.0006498908239, No Iterations 1
+DILUPBiCGStab:  Solving for p, Initial residual = 0.0007147058052, Final residual = 0.0004812825881, No Iterations 1
+DILUPBiCGStab:  Solving for p, Initial residual = 0.0005033611048, Final residual = 0.0004282112453, No Iterations 1
+time step continuity errors : sum local = 4.078856392e-07, global = 7.506695286e-08, cumulative = 1.415211898e-07
+DILUPBiCGStab:  Solving for p, Initial residual = 0.09526865799, Final residual = 0.0007663226331, No Iterations 147
+DILUPBiCGStab:  Solving for p, Initial residual = 0.002509241424, Final residual = 0.0009411276375, No Iterations 1
+DILUPBiCGStab:  Solving for p, Initial residual = 0.001008343414, Final residual = 0.0007858215167, No Iterations 1
+DILUPBiCGStab:  Solving for p, Initial residual = 0.0008106330266, Final residual = 9.990235223e-05, No Iterations 58
+time step continuity errors : sum local = 4.082757733e-07, global = 7.261241701e-08, cumulative = 2.141336068e-07
+DILUPBiCGStab:  Solving for omega, Initial residual = 1.246434954e-06, Final residual = 1.617735295e-09, No Iterations 1
+DILUPBiCGStab:  Solving for k, Initial residual = 0.0001142790297, Final residual = 2.813003695e-09, No Iterations 2
+PIMPLE: iteration 2
+DILUPBiCGStab:  Solving for Ux, Initial residual = 0.0007418347488, Final residual = 3.969617802e-11, No Iterations 3
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.0008339608171, Final residual = 1.061326825e-10, No Iterations 3
+DILUPBiCGStab:  Solving for p, Initial residual = 0.119540457, Final residual = 0.000931611332, No Iterations 74
+DILUPBiCGStab:  Solving for p, Initial residual = 0.004887021659, Final residual = 0.0009757154485, No Iterations 27
+DILUPBiCGStab:  Solving for p, Initial residual = 0.001347741946, Final residual = 0.0009628110796, No Iterations 1
+DILUPBiCGStab:  Solving for p, Initial residual = 0.001020740591, Final residual = 0.0009406006687, No Iterations 1
+time step continuity errors : sum local = 4.945457184e-07, global = 6.086335889e-08, cumulative = 2.749969657e-07
+DILUPBiCGStab:  Solving for p, Initial residual = 0.03113984997, Final residual = 0.0009045957591, No Iterations 27
+DILUPBiCGStab:  Solving for p, Initial residual = 0.001223398599, Final residual = 0.0009443665894, No Iterations 1
+DILUPBiCGStab:  Solving for p, Initial residual = 0.0009738643018, Final residual = 0.000908920784, No Iterations 1
+DILUPBiCGStab:  Solving for p, Initial residual = 0.0009248169847, Final residual = 0.0008852246002, No Iterations 1
+time step continuity errors : sum local = 5.023880389e-07, global = 6.571733788e-08, cumulative = 3.407143035e-07
+DILUPBiCGStab:  Solving for p, Initial residual = 0.01861398219, Final residual = 0.0008855212333, No Iterations 33
+DILUPBiCGStab:  Solving for p, Initial residual = 0.001244828555, Final residual = 0.000898280191, No Iterations 1
+DILUPBiCGStab:  Solving for p, Initial residual = 0.0009229569906, Final residual = 0.000872033332, No Iterations 1
+DILUPBiCGStab:  Solving for p, Initial residual = 0.0008838630142, Final residual = 9.834694284e-05, No Iterations 106
+time step continuity errors : sum local = 5.015409098e-07, global = 7.079396988e-08, cumulative = 4.115082734e-07
+DILUPBiCGStab:  Solving for omega, Initial residual = 9.450604907e-07, Final residual = 2.112867906e-10, No Iterations 2
+DILUPBiCGStab:  Solving for k, Initial residual = 4.818820981e-05, Final residual = 2.842829586e-10, No Iterations 3
+PIMPLE: converged in 2 iterations
+ExecutionTime = 16.97 s  ClockTime = 17 s
+
+yPlus yPlus write:
+    writing field yPlus
+    patch airfoil y+ : min = 10.9324895, max = 25.59620766, average = 22.35768586
+wallShearStress wallShearStress write:
+    writing field wallShearStress
+    min/max(airfoil) = (-0.1540847236 0.07890257137 -3.279603742e-16), (0.1061011026 0.3899943444 2.65902467e-16)
+Courant Number mean: 3.613552831e-05 max: 35.65555764
+deltaT = 0.001024214902
+Time = 0.00401532
+
+PIMPLE: iteration 1
+DILUPBiCGStab:  Solving for yPsi, Initial residual = 0.002230848744, Final residual = 9.875100088e-09, No Iterations 144
+cellVolumeWeight : detected 2 mesh regions
+
+    zone:0 nCells:55842
+    zone:1 nCells:3318
+Marking patch-cells on zone 0
+Marking patch-cells on zone 1
+
+After patch analysis : nCells : 59160
+    other  : 58728
+    patch  : 274
+    overset: 158
+
+Creating mesh-to-mesh addressing for region0 and region0 regions using cellVolumeWeight
+    Overlap volume: 0.002060432866
+cellVolumeWeight : detected 3 mesh regions after overset
+
+Front : fraction:1 size:206
+Overset analysis : nCells : 59160
+    calculated   : 58900
+    interpolated : 201
+    hole         : 59
+
+Mesh Courant Number mean: 3.472133509e-05 max: 40.45499904
+DILUPBiCGStab:  Solving for Ux, Initial residual = 0.001552347981, Final residual = 1.041417983e-09, No Iterations 2
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.002543968139, Final residual = 2.320235805e-09, No Iterations 2
+DILUPBiCGStab:  Solving for p, Initial residual = 0.08831665371, Final residual = 0.0001456917439, No Iterations 130
+DILUPBiCGStab:  Solving for p, Initial residual = 0.002510089721, Final residual = 0.0003077782909, No Iterations 1
+DILUPBiCGStab:  Solving for p, Initial residual = 0.000361408856, Final residual = 0.0001475361532, No Iterations 1
+DILUPBiCGStab:  Solving for p, Initial residual = 0.0001603383561, Final residual = 0.0001100327489, No Iterations 1
+time step continuity errors : sum local = 5.303728399e-07, global = -3.916107338e-08, cumulative = 3.723472e-07
+DILUPBiCGStab:  Solving for p, Initial residual = 0.05811256768, Final residual = 0.000799662355, No Iterations 118
+DILUPBiCGStab:  Solving for p, Initial residual = 0.002002492215, Final residual = 0.0004477957177, No Iterations 1
+DILUPBiCGStab:  Solving for p, Initial residual = 0.0004877620896, Final residual = 0.0003590261463, No Iterations 1
+DILUPBiCGStab:  Solving for p, Initial residual = 0.0003709074053, Final residual = 0.0003417209667, No Iterations 1
+time step continuity errors : sum local = 5.31785583e-07, global = -4.054854309e-08, cumulative = 3.31798657e-07
+DILUPBiCGStab:  Solving for p, Initial residual = 0.05867389984, Final residual = 0.0004357371798, No Iterations 118
+DILUPBiCGStab:  Solving for p, Initial residual = 0.001936771148, Final residual = 0.0003165112972, No Iterations 1
+DILUPBiCGStab:  Solving for p, Initial residual = 0.0003598183295, Final residual = 0.0002135262146, No Iterations 1
+DILUPBiCGStab:  Solving for p, Initial residual = 0.0002247955922, Final residual = 9.762470807e-05, No Iterations 17
+time step continuity errors : sum local = 5.362803709e-07, global = -4.68871025e-08, cumulative = 2.849115545e-07
+DILUPBiCGStab:  Solving for omega, Initial residual = 1.432845733e-06, Final residual = 1.490023913e-09, No Iterations 1
+DILUPBiCGStab:  Solving for k, Initial residual = 6.275620179e-05, Final residual = 3.376488915e-09, No Iterations 2
+PIMPLE: iteration 2
+DILUPBiCGStab:  Solving for Ux, Initial residual = 0.000594683828, Final residual = 2.875175019e-10, No Iterations 2
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.0007700136605, Final residual = 6.539640886e-10, No Iterations 2
+DILUPBiCGStab:  Solving for p, Initial residual = 0.0512627877, Final residual = 0.0009607510512, No Iterations 110
+DILUPBiCGStab:  Solving for p, Initial residual = 0.001920700678, Final residual = 0.0006551185741, No Iterations 1
+DILUPBiCGStab:  Solving for p, Initial residual = 0.0006978866363, Final residual = 0.0005851959524, No Iterations 1
+DILUPBiCGStab:  Solving for p, Initial residual = 0.0005985950653, Final residual = 0.0005855314374, No Iterations 1
+time step continuity errors : sum local = 7.471916477e-07, global = -1.867993622e-08, cumulative = 2.662316182e-07
+DILUPBiCGStab:  Solving for p, Initial residual = 0.005581391617, Final residual = 0.0009986255259, No Iterations 4
+DILUPBiCGStab:  Solving for p, Initial residual = 0.001023274767, Final residual = 0.0009740887881, No Iterations 1
+DILUPBiCGStab:  Solving for p, Initial residual = 0.0009890895911, Final residual = 0.0009121487893, No Iterations 1
+DILUPBiCGStab:  Solving for p, Initial residual = 0.0009304499088, Final residual = 0.0009077387265, No Iterations 1
+time step continuity errors : sum local = 7.391455776e-07, global = -9.858272692e-09, cumulative = 2.563733455e-07
+DILUPBiCGStab:  Solving for p, Initial residual = 0.004578077, Final residual = 0.0009756185643, No Iterations 13
+DILUPBiCGStab:  Solving for p, Initial residual = 0.001025072355, Final residual = 0.0009192854587, No Iterations 1
+DILUPBiCGStab:  Solving for p, Initial residual = 0.0009338384044, Final residual = 0.0008740765624, No Iterations 1
+DILUPBiCGStab:  Solving for p, Initial residual = 0.0008906523606, Final residual = 9.54200885e-05, No Iterations 101
+time step continuity errors : sum local = 7.512551588e-07, global = -2.773659722e-08, cumulative = 2.286367483e-07
+DILUPBiCGStab:  Solving for omega, Initial residual = 9.941496538e-07, Final residual = 9.82668112e-10, No Iterations 2
+DILUPBiCGStab:  Solving for k, Initial residual = 3.949223652e-05, Final residual = 2.494243694e-10, No Iterations 3
+PIMPLE: converged in 2 iterations
+ExecutionTime = 20.19 s  ClockTime = 20 s
+
+yPlus yPlus write:
+    writing field yPlus
+    patch airfoil y+ : min = 10.86745974, max = 25.06946343, average = 22.11864034
+wallShearStress wallShearStress write:
+    writing field wallShearStress
+    min/max(airfoil) = (-0.1562911107 0.07312410614 -5.96001962e-16), (0.09345261092 0.3426127361 -1.35780443e-16)
+Courant Number mean: 4.01481808e-05 max: 38.53540639
+deltaT = 0.001063141664
+Time = 0.00507846
+
+PIMPLE: iteration 1
+DILUPBiCGStab:  Solving for yPsi, Initial residual = 0.002506312495, Final residual = 9.94761904e-09, No Iterations 193
+cellVolumeWeight : detected 2 mesh regions
+
+    zone:0 nCells:55842
+    zone:1 nCells:3318
+Marking patch-cells on zone 0
+Marking patch-cells on zone 1
+
+After patch analysis : nCells : 59160
+    other  : 58728
+    patch  : 274
+    overset: 158
+
+Creating mesh-to-mesh addressing for region0 and region0 regions using cellVolumeWeight
+    Overlap volume: 0.002058941985
+cellVolumeWeight : detected 3 mesh regions after overset
+
+Front : fraction:1 size:206
+Overset analysis : nCells : 59160
+    calculated   : 58900
+    interpolated : 202
+    hole         : 58
+
+Mesh Courant Number mean: 3.605018969e-05 max: 41.77724587
